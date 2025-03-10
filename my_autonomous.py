@@ -223,7 +223,7 @@ def check_finish():
 # Main loop
 running = True
 auto_mode = True
-mode_text = "Mode: Manual"
+mode_text = "Mode: Auto"
 
 # For sensitivity analysis
 sensitivity_values = [0.2, 0.4, 0.6, 0.8, 1.0]
@@ -245,7 +245,7 @@ def run_sensitivity_analysis():
         
         # Reset robot
         robot_x, robot_y = start_x, start_y
-        heading_angle = 90
+        heading_angle = 270
         speed = 0
         trace_points = []
         collision_count = 0
