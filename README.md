@@ -1,4 +1,37 @@
 # Braitenberg_vehicle_behavior
+ This project implements a Braitenberg vehicle simulation with both teleoperation and autonomous navigation capabilities. The robot uses sensors to detect obstacles in a maze environment and implements cross-wired Braitenberg behavior for obstacle avoidance. The simulation allows for parameter tuning to analyze the impact of sensitivity on navigation performance.
+## Features
+- Manual teleoperation using arrow keys
+- Autonomous navigation with Braitenberg vehicle behavior
+- Sensitivity analysis with performance metrics
+- Visualization of sensor readings and robot path
+- Containerized application using Docker
+
+## Autonomous Behavior
+The robot implements a cross-wired Braitenberg vehicle behavior where:
+- Two sensors positioned at 45° angles detect obstacles
+- Sensor readings influence turning behavior (right sensor affects left wheel, left sensor affects right wheel)
+- The robot slows down when approaching obstacles
+- The sensitivity parameter controls how strongly the robot responds to sensor readings
+
+### Sensitivity Parameter
+The sensitivity parameter (0.2-1.0) determines how strongly the robot reacts to detected obstacles:
+- Higher sensitivity: More aggressive turning and earlier response to obstacles
+- Lower sensitivity: More gradual turning and later response to obstacles
+
+The analysis feature tests different sensitivity values to find the optimal setting that minimizes both completion time and collision count.
+## Performance Metrics
+The sensitivity analysis evaluates robot performance using:
+- Completion time: How long it takes to navigate from start to finish
+- Collision count: Number of times the robot collides with maze walls
+- Performance score: A weighted combination (time + collisions*2) where lower is better
+
+The analysis generates graphs showing how these metrics vary with different sensitivity values.
+
+## Troubleshooting
+- If you encounter display issues, ensure X11 forwarding is properly configured
+- If the container exits immediately, check that pygame is properly installed
+- For performance issues, try adjusting the robot speed and sensor range parameters
 
 # How to run this repository
 ### Install docker
